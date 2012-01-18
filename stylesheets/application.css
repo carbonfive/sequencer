@@ -1,0 +1,26 @@
+body {
+
+
+}
+
+.active {
+  background-color: #caebe4;
+}
+
+input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    margin: 0;
+}
+
+table td {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+table tr {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
