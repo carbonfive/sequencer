@@ -1,6 +1,5 @@
 body {
 
-
 }
 
 .active {
@@ -14,11 +13,16 @@ input[type="checkbox"] {
     margin: 0;
 }
 
+table {
+    border: none;
+}
+
 table td {
     border: none;
     margin: 0;
     padding: 0;
 }
+
 table tr {
     border: none;
     margin: 0;
