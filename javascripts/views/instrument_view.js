@@ -35,7 +35,7 @@ sq.Views.Instrument = Backbone.View.extend({
     }
 
     if ($target.prop('checked')) {
-      this.model.play();
+      if (!sq.isPlaying) { this.model.play(); }
       this.metronome.bind('beat:' + beatCount, this.play, this);
     } else {
       this.metronome.unbind('beat:' + beatCount, this.play);

@@ -3,34 +3,46 @@ sq.Views.Application = Backbone.View.extend({
   className: "application",
 
   events: {
-    "click .play": "play",
-    "click .pause": "pause",
+    "click .toggle": "toggle",
     "click .random": "random",
     "click .clear": "clear"
   },
 
   initialize: function(options){
+    sq.isPlaying = false;
     this.metronome = options.metronome;
     this.sequenceGridView = new sq.Views.SequenceGrid({metronome: this.metronome});
-
-//    this.metronome.bind("beat:0", function(){pick_up.play()});
-//    this.metronome.bind("beat:2", function(){pick_up.play()});
-//    this.metronome.bind("beat:4", function(){pick_up.play()});
-//    this.metronome.bind("beat:6", function(){fireball.play()});
-//    this.metronome.bind("beat:8", function(){coin.play()});
-//    this.metronome.bind("beat:9", function(){fireball.play()});
-//    this.metronome.bind("beat:10", function(){pick_up.play()});
-//    this.metronome.bind("beat:14", function(){firework.play()});
 
     $('body').append(this.render().el);
   },
 
+  toggle: function(){
+    if (sq.isPlaying) {
+      this.pause();
+    } else {
+      this.play();
+    }
+  },
+
   play: function(){
     this.metronome.start();
+
+    sq.isPlaying = true;
+    this.$('.toggle').html("Pause");
   },
 
   pause: function(){
+    this.quiet();
+
+    sq.instruments.get('pause').play();
+  },
+
+  quiet: function(){
     this.metronome.stop();
+    sq.instruments.stop();
+
+    sq.isPlaying = false;
+    this.$('.toggle').html("Play");
   },
 
   random: function(){
@@ -39,15 +51,19 @@ sq.Views.Application = Backbone.View.extend({
         $(this).trigger('click');
       }
     });
+
+    sq.instruments.get('firework').play();
   },
 
   clear: function(){
+    this.quiet();
+    sq.instruments.get('enter_castle').play();
+
     $('input[type="checkbox"]:checked').click()
   },
 
   template: _.template(
-      '<button class="play">Play</button>' +
-      '<button class="pause">Pause</button>' +
+      '<button class="toggle">Play</button>' +
       '<button class="random">Random</button>' +
       '<button class="clear">Clear</button>'
       ),
