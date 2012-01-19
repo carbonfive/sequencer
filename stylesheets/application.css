@@ -32,7 +32,11 @@ input[type="checkbox"] {
     margin: 0 3px 0 0;
 
     background-color: brown;
+}
 
+input[type="checkbox"]:active {
+    -webkit-animation: bump 1s 1;
+    background: yellow;
 }
 
 input[type="checkbox"]:checked {
