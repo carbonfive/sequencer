@@ -23,6 +23,7 @@ sq.Views.SequenceGrid = Backbone.View.extend({
         metronome: self.metronome
       }).render().el );
     });
+
     return this;
   }
 

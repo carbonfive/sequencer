@@ -11,19 +11,18 @@ sq.Views.Instrument = Backbone.View.extend({
     $(this.el).html(this.template({
       name: this.model.get('name'),
       id: this.model.id,
-      beatLength: 15
+      beatLength: 16
     }));
     return this;
   },
 
   initialize: function(options){
     _.bindAll(this, 'checkbox_changed', 'play');
-    console.log(options.metronome);
     this.metronome = options.metronome;
   },
 
   events: {
-    'click .th': 'play',
+    'click th': 'play',
     'change input[type="checkbox"]': 'checkbox_changed'
   },
 

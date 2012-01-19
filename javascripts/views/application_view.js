@@ -4,7 +4,9 @@ sq.Views.Application = Backbone.View.extend({
 
   events: {
     "click .play": "play",
-    "click .pause": "pause"
+    "click .pause": "pause",
+    "click .random": "random",
+    "click .clear": "clear"
   },
 
   initialize: function(options){
@@ -31,9 +33,23 @@ sq.Views.Application = Backbone.View.extend({
     this.metronome.stop();
   },
 
+  random: function(){
+    $('input[type="checkbox"]').each(function(){
+      if (Math.floor(Math.random()*10+1) === 10) {
+        $(this).trigger('click');
+      }
+    });
+  },
+
+  clear: function(){
+    $('input[type="checkbox"]:checked').click()
+  },
+
   template: _.template(
       '<button class="play">Play</button>' +
-      '<button class="pause">Pause</button>'
+      '<button class="pause">Pause</button>' +
+      '<button class="random">Random</button>' +
+      '<button class="clear">Clear</button>'
       ),
 
   render: function(){

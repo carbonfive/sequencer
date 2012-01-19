@@ -56,7 +56,7 @@ sq.instrument_data = [
 
   {
     id: 'pick_up',
-    name: 'Scratch'
+    name: 'Pick up'
   },
 
   {
