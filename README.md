@@ -19,8 +19,8 @@ Folks using OS X can use the built-in python web server.
 Acknowledgements
 ----------------
 
-This project uses Jquery, Backbone, Underscore, and Audia. Thanks ya'll.
+This project uses [jQuery](http://jquery.com/), [Backbone](http://documentcloud.github.com/backbone/), [Underscore](http://documentcloud.github.com/underscore/), and [Audia](https://github.com/richtaur/audia). Thanks ya'll.
 
-The sounds samples come from various Super Mario.
+The sounds samples come from various Super Mario games.
 We didn't make 'em and we don't claim to own 'em.
 They belong to Nintendo. Nintendo, keep making cool games.
